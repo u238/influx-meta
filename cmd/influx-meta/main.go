@@ -42,6 +42,12 @@ func main() {
 			for _, rpdir := range rpfiles {
 				// dig into retention policies
 				dbInfo.RetentionPolicy(rpdir.Name())
+				rpi := dbInfo.RetentionPolicy(rpdir.Name())
+				if rpi != nil {
+
+				} else {
+					fmt.Errorf("[!] Retention policy '%s' not found for database ", err)
+				}
 			}
 		} else {
 			fmt.Printf("database %s is missing in configuration", dbdir.Name())
